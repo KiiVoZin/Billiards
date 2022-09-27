@@ -14,7 +14,8 @@ public class Core
     {
         foreach(RigidShape shape in rigidShapes)
         {
-            if (shape.Type == "Circle") MyDebug.DrawCircle(shape, Color.green, 40);
+            if (shape.Type == "Circle") MyDebug.DrawCircle((Circle)shape, Color.green, 40);
+            else if (shape.Type == "Rectangle") MyDebug.DrawRectangle((Rectangle)shape, Color.green);
         }
     }
 }

@@ -8,11 +8,13 @@ public class GameManagerScript : MonoBehaviour
     [SerializeField] float timePeriod;
     List<GameObject> Balls;
     float counter;
+    Core core;
     // Start is called before the first frame update
     void Start()
     {
         counter = 0;
         Balls = GameObject.FindGameObjectsWithTag("Ball").ToList<GameObject>();
+        core = new Core();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class GameManagerScript : MonoBehaviour
         {
             counter -= timePeriod;
             //Do fixed update shenanigans here
-            Core core = new Core();
+            core.RunGameLoop();
         }
 
         //Update
