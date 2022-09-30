@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1075261029072093390, guid: a19a1551dc367ae4aafb13b07ab54231, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4911589519107502170, guid: a19a1551dc367ae4aafb13b07ab54231, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -293,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f35a69c2b0b68f41aca6a646b11b114, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timePeriod: 0.2
+  timePeriod: 0.02
 --- !u!4 &1316583117
 Transform:
   m_ObjectHideFlags: 0
@@ -319,6 +323,10 @@ PrefabInstance:
     - target: {fileID: 1075261029072093390, guid: a19a1551dc367ae4aafb13b07ab54231, type: 3}
       propertyPath: m_Name
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1075261029072093390, guid: a19a1551dc367ae4aafb13b07ab54231, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4911589519107502170, guid: a19a1551dc367ae4aafb13b07ab54231, type: 3}
       propertyPath: m_RootOrder
@@ -428,6 +436,10 @@ PrefabInstance:
     - target: {fileID: 6067203832061636859, guid: 02d9ea7f7af7bae4f89e5fdc6b162ff2, type: 3}
       propertyPath: m_Name
       value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 6067203832061636859, guid: 02d9ea7f7af7bae4f89e5fdc6b162ff2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6067203832230135673, guid: 02d9ea7f7af7bae4f89e5fdc6b162ff2, type: 3}
       propertyPath: m_TagString

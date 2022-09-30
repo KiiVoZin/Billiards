@@ -24,12 +24,12 @@ public class GameManagerScript : MonoBehaviour
         counter += Time.deltaTime;
         while (counter >= timePeriod)
         {
-            counter -= timePeriod;
             //Do fixed update shenanigans here
-            core.RunGameLoop();
+            core.RunGameLoop(timePeriod);
+            counter -= timePeriod;
         }
-
         //Update
+        core.Draw();
     }
 
 }
