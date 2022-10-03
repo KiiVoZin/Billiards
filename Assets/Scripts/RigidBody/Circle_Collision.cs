@@ -6,18 +6,11 @@ using Debug = UnityEngine.Debug;
 
 public class Circle_Collision : MonoBehaviour
 {
-    public static bool CollisionTest(RigidShape thisShape,RigidShape otherShape, out CollisionInfo collisionInfo)
+    public static bool CollisionTest(RigidShape thisShape, RigidShape otherShape, out CollisionInfo collisionInfo)
     {
         collisionInfo = new CollisionInfo();
         var status = false;
-        if(otherShape.Type == "Circle")
-        {
-            status = CollidedCircCirc((Circle)thisShape, (Circle)otherShape, out collisionInfo);
-        }
-        else
-        {
-            status = false;
-        }
+        status = CollidedCircCirc((Circle)thisShape, (Circle)otherShape, out collisionInfo);
         return status;
     }
 
@@ -27,7 +20,7 @@ public class Circle_Collision : MonoBehaviour
         var vFrom1to2 = c2.Center.Subtract(c1.Center);
         var rSum = c1.Radius + c2.Radius;
         var dist = vFrom1to2.Length();
-        if(dist > Math.Sqrt(rSum * rSum))
+        if (dist > Math.Sqrt(rSum * rSum))
         {
             return false;
         }
@@ -39,7 +32,7 @@ public class Circle_Collision : MonoBehaviour
         }
         else
         {
-            if(c1.Radius > c2.Radius)
+            if (c1.Radius > c2.Radius)
             {
                 collisionInfo.SetInfo(rSum, new Vec2(0, -1), c1.Center.Add(new Vec2(0, c1.Radius)));
             }
@@ -48,6 +41,6 @@ public class Circle_Collision : MonoBehaviour
                 collisionInfo.SetInfo(rSum, new Vec2(0, -1), c2.Center.Add(new Vec2(0, c2.Radius)));
             }
         }
-        return false;
+        return true;
     }
 }

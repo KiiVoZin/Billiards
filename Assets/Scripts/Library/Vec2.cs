@@ -1,7 +1,8 @@
+using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+[Serializable]
 public class Vec2
 {
     public float x;
@@ -68,5 +69,19 @@ public class Vec2
         var x = this.x - vec.x;
         var y = this.y - vec.y;
         return Mathf.Sqrt(x * x + y * y);
+    }
+
+    public Vector3 ToVector3( )
+    {
+        return new Vector3(x, y, 0);
+    }
+
+    public Vec2 ToVec2(Vector2 vector) {
+        return new Vec2(vector.x, vector.y);
+    }
+
+    public static Vec2 ToVec2(Vector3 vector)
+    {
+        return new Vec2(vector.x, vector.y);
     }
 }

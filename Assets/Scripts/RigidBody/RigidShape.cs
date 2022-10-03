@@ -1,25 +1,32 @@
 using System;
 using UnityEngine;
 using UnityEngine.Scripting.APIUpdating;
-
-public class RigidShape
+[Serializable]
+public abstract class RigidShape
 {
     public Vec2 Center;
     public float Angle;
-    public string Type;
     public float BoundRadius;
     public Vec2 Velocity;
     public Vec2 Acceleration;
     public float Friction;
     public float Restitution;
-    public float Mass;
+
+    float mass;
+    public float Mass
+    {
+        set { mass = value;
+            InvMass = 1 / mass;
+        }
+        
+        get { return mass; }
+    }
     public float InvMass;
     public float Inertia;
-    public RigidShape(Vec2 center, string type, float boundRadius, float mass, float friction, float restitution)
+    RigidShape(Vec2 center, float boundRadius, float mass, float friction, float restitution)
     {
         Center = center;
         Angle = 0;
-        Type = type;
         BoundRadius = boundRadius;
         Velocity = new Vec2(0, 0);
         Acceleration = Core.Gravity;
@@ -29,6 +36,12 @@ public class RigidShape
         InvMass = 1 / Mass;
         Inertia = 0;
     }
+
+    public static Circle CreateCircleRigid(Vec2 center, float boundRadius, float mass, float friction, float restitution)
+    {
+        return new Circle(center, boundRadius, mass, friction, restitution);
+    }
+
 
     public bool BoundTest(RigidShape otherShape)
     {
@@ -48,6 +61,10 @@ public class RigidShape
         InvMass = 1 / Mass;
     }
 
-    public virtual RigidShape Move(Vec2 vec2) { return this; }
+    public RigidShape Move(Vec2 vec2)
+    {
+        this.Center = this.Center.Add(vec2);
+        return this;
+    }
     public virtual void UpdateInertia() { }
 }
