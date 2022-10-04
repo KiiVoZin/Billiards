@@ -7,9 +7,4 @@ public class RigidCircleUnity : MonoBehaviour
 {
     public Circle RigidShape;
 
-    public void Test()
-    {
-        RigidShape.Mass = 5;
-    }
-
 }

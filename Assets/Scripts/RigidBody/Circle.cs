@@ -2,9 +2,18 @@ using System;
 using UnityEngine.Scripting.APIUpdating;
 
 [Serializable]
-public class Circle: RigidShape
+public class Circle : RigidShape
 {
-    public float Radius;
+    private float radius;
+    public float Radius
+    {
+        get { return radius; }
+        set
+        {
+            radius = value;
+            BoundRadius = value;
+        }
+    }
     public Circle(Vec2 center, float radius, float mass, float friction, float restitution) : base(center, radius, mass, friction, restitution)
     {
         Radius = radius;
@@ -20,7 +29,7 @@ public class Circle: RigidShape
 
     public override void UpdateInertia()
     {
-        if(this.InvMass == 0)
+        if (this.InvMass == 0)
         {
             this.Inertia = 0;
         }

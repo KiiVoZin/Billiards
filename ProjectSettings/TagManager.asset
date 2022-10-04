@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ball
   - Hole
   - Wall
+  - Cue Ball
+  - Pool Ball
+  - Cue Stick
   layers:
   - Default
   - TransparentFX

@@ -4,26 +4,17 @@ using UnityEngine.Scripting.APIUpdating;
 [Serializable]
 public abstract class RigidShape
 {
-    public Vec2 Center;
-    public float Angle;
-    public float BoundRadius;
+    [NonSerialized] public Vec2 Center;
+    [NonSerialized] public float Angle;
+    [NonSerialized] public float BoundRadius;
     public Vec2 Velocity;
     public Vec2 Acceleration;
     public float Friction;
     public float Restitution;
-
-    float mass;
-    public float Mass
-    {
-        set { mass = value;
-            InvMass = 1 / mass;
-        }
-        
-        get { return mass; }
-    }
-    public float InvMass;
+    public float Mass;
+    [NonSerialized] public float InvMass;
     public float Inertia;
-    RigidShape(Vec2 center, float boundRadius, float mass, float friction, float restitution)
+    public RigidShape(Vec2 center, float boundRadius, float mass, float friction, float restitution)
     {
         Center = center;
         Angle = 0;
@@ -35,11 +26,6 @@ public abstract class RigidShape
         Restitution = restitution;
         InvMass = 1 / Mass;
         Inertia = 0;
-    }
-
-    public static Circle CreateCircleRigid(Vec2 center, float boundRadius, float mass, float friction, float restitution)
-    {
-        return new Circle(center, boundRadius, mass, friction, restitution);
     }
 
 

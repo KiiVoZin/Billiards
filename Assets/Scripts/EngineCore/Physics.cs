@@ -66,8 +66,7 @@ public class Physics
         if (rVelocityInNormal > 0) return;
 
         var newRestitution = Mathf.Min(shape1.Restitution, shape2.Restitution);
-        var newFriction = Mathf.Min(shape1.Friction, shape1.Friction);
-
+        var newFriction = Mathf.Min(shape1.Friction, shape2.Friction);
         var jN = -(1 + newRestitution) * rVelocityInNormal;
         jN = jN / (shape1.InvMass + shape2.InvMass);
 
